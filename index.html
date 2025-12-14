@@ -10,6 +10,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: #f4f6f8;
       color: #333;
+      scroll-behavior: smooth;
     }
     header {
       background: #1e88e5;
@@ -21,6 +22,9 @@
       background: #1565c0;
       padding: 10px;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
     nav a {
       color: white;
@@ -42,6 +46,11 @@
       margin-bottom: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
     .grid {
       display: grid;
@@ -69,6 +78,21 @@
       max-width: 100%;
       border-radius: 8px;
     }
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      background: #1e88e5;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1000;
+    }
+    #backToTop:hover {
+      background: #0d47a1;
+    }
   </style>
 </head>
 <body>
@@ -76,6 +100,7 @@
   <header>
     <h1>Moragori Eugene</h1>
     <p>Focused Researcher on Natural Remedies</p>
+    <img src="https://images.unsplash.com/photo-1598514982254-0342f362f94b" alt="Medicinal herbs" style="width:80%; margin-top:20px; border-radius:12px;">
   </header>
 
   <nav>
@@ -91,6 +116,7 @@
       <p>My name is <strong>Moragori Eugene</strong>. I am a focused and passionate researcher on <strong>natural remedies</strong>, traditional medicine, and plant-based healing solutions. My work is driven by a deep interest in understanding how nature provides safe, affordable, and effective remedies for common and chronic health conditions.</p>
       <p>I study medicinal plants, herbs, roots, and natural formulations used in African traditional medicine and other global cultures. I am especially interested in evidence-based natural remedies, proper preparation methods, dosage safety, and how traditional knowledge can work alongside modern science.</p>
       <p>Through continuous research, reading, experimentation, and documentation, I aim to educate people on responsible use of natural remedies while promoting sustainability, conservation of medicinal plants, and ethical knowledge sharing.</p>
+      <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e" alt="Research herbs" style="width:100%; margin-top:20px;">
     </div>
   </section>
 
@@ -106,6 +132,7 @@
         <li>Basic scientific research and observation</li>
         <li>Ethical and safe use of natural medicine</li>
       </ul>
+      <img src="https://images.unsplash.com/photo-1617196032017-1c5c33404c53" alt="Herbal research" style="width:100%; margin-top:20px;">
     </div>
   </section>
 
@@ -142,7 +169,7 @@
     <div class="card">
       <h2>Contact Me</h2>
       <p><strong>Phone:</strong> 0707548459</p>
-      <p><strong>Email:</strong> yourname@email.com</p>
+      <p><strong>Email:</strong> eugenemoragori@gmail.com</p>
       <p>Feel free to contact me for discussions, collaborations, or questions related to natural remedies, medicinal plants, and research.</p>
       <a href="https://wa.me/254707548459" target="_blank"><button>Chat on WhatsApp</button></a>
       <button onclick="alert('Thank you for visiting my website!')">Say Hello</button>
@@ -152,6 +179,19 @@
   <footer>
     <p>&copy; 2025 Moragori Eugene. All rights reserved.</p>
   </footer>
+
+  <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+
+  <script>
+    window.onscroll = function() {
+      const btn = document.getElementById('backToTop');
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        btn.style.display = 'block';
+      } else {
+        btn.style.display = 'none';
+      }
+    };
+  </script>
 
 </body>
 </html>
